@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.productDetail > h1 {
+  text-align: center;
+}
+
 .my_product {
   width: 40%;
   display: flex;
@@ -33,11 +37,10 @@
 }
 
 .product_ingredients {
-  margin-top: 30px;
   width: 60%;
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ingredient-detail > img {
@@ -56,6 +59,17 @@
 .ingredient-detail h4 {
   color: #071f05;
   text-align: center;
-  margin-top: -12px;
+  margin-top: -8px;
   margin-bottom: 10px;
+}
+
+.ingredients {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingredient-heading {
+  text-align: center;
+  margin: 30px;
+  color: #071f05;
 }

@@ -10,17 +10,22 @@ const Navbar = () => {
   return (
     <div className="nav">
       <img
-        src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM265FUQRVG6JL2OYBUDBUN6FQ"
-        alt="alan eats logo"
+        src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26ZIN6MJYPGOYKDB53BVT6CW"
+        alt="alan eat"
       />
       <div className="nav_search">
         <input type="text" placeholder="Search" />
         <SearchIcon className="nav_searchIcon" />
       </div>
       <div className="nav_header">
-        <span className="nav_signin" onClick = {()=>{
-          history.push("/signin");
-        }}>Sign In</span>
+        <span
+          className="nav_signin"
+          onClick={() => {
+            history.push("/signin");
+          }}
+        >
+          Sign In
+        </span>
         <div
           className="nav_cart"
           onClick={() => {
