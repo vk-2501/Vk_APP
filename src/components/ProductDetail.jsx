@@ -4,6 +4,8 @@ import "./css/productDetails.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Review from "./Review";
+import AddReview from "./AddReview";
+
 let i = 0;
 const ProductDetail = () => {
   let { foodId } = useParams();
@@ -25,6 +27,8 @@ const ProductDetail = () => {
         setReviewData(arr);
       });
   };
+
+  console.log(details);
 
   let getReview = async () => {
     try {
@@ -70,10 +74,16 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      <h1>Customer Reviews</h1>
       <div className="reviews">
-        {reviewData.map((review) => {
-          return <Review reviewDetails={review} key={review._id} />;
-        })}
+        <div className="addReview_container">
+          <AddReview itemDetails={details} />
+        </div>
+        <div className="review_container">
+          {reviewData.map((review) => {
+            return <Review reviewDetails={review} key={review._id} />;
+          })}
+        </div>
       </div>
     </>
   );

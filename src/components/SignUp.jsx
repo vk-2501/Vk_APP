@@ -19,7 +19,7 @@ const SignUp = () => {
         password: password,
         confirmPassword: confirm,
       });
-      console.log(data);
+    
       history.push("/signin");
     } catch (err) {
       console.log(err);
