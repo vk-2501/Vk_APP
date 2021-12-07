@@ -2,7 +2,7 @@
 
 .addReview {
   border: 1px solid grey;
-  /* height: fit-content; */
+  height: fit-content;
   padding: 25px;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -47,19 +47,23 @@ form > textarea {
 }
 
 .addReviewBtn {
-  background-color: #164011;
-  color: white;
+  background-color: honeydew;
+  border: 1px solid gray;
+  border-radius: 4px;
   padding: 4px 15px;
   margin-top: 10px;
   border-radius: 7px;
   cursor: pointer;
   outline: none;
+  width: -webkit-fill-available;
 }
 
 .addReviewBtn:hover {
-  background-color: rgb(206, 206, 206);
+  background-color: rgb(233, 233, 233);
+  border: none;
   color: black;
   font-weight: 500;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* display review item details */

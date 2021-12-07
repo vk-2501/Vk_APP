@@ -28,8 +28,6 @@ const ProductDetail = () => {
       });
   };
 
-  console.log(details);
-
   let getReview = async () => {
     try {
       let arr = [];

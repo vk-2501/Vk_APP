@@ -29,6 +29,7 @@ const AddReview = ({ itemDetails }) => {
       await axios.post("/api/review", {
         description: reviewDescription,
         rating: value,
+        food: itemDetails._id,
       });
     } catch (err) {
       console.log(err);
