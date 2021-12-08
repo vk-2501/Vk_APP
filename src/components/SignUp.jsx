@@ -12,77 +12,75 @@ const SignUp = () => {
   const [confirm, setConfirm] = useState("");
 
   const handleSignup = async () => {
+    history.push("/signin");
     try {
-      const data = await axios.post("/api/user/signup", {
+      let data = await axios.post("/api/user/signup", {
         name: name,
         email: email,
         password: password,
         confirmPassword: confirm,
       });
-    
-      history.push("/signin");
+      
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <>
-      <div className="signup">
-        <Link to="/">
-          <img
-            className="signin_logo"
-            src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26ZIN6MJYPGOYKDB53BVT6CW"
-            alt="alan eats logo"
+    <div className="signup">
+      <Link to="/">
+        <img
+          className="signin_logo"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26BSH73Q5VUXQ23MRLBXHH32"
+          alt="alan eats logo"
+        />
+      </Link>
+      <div className="signin_container">
+        <h1>Sign-up</h1>
+        <form>
+          <h5>Username</h5>
+          <input
+            type="text"
+            placeholder="Your Name"
+            onChange={(e) => nameSet(e.target.value)}
           />
-        </Link>
-        <div className="signin_container">
-          <h1>Sign-up</h1>
-          <form>
-            <h5>Username</h5>
-            <input
-              type="text"
-              placeholder="Your Name"
-              onChange={(e) => nameSet(e.target.value)}
-            />
 
-            <h5>E-mail</h5>
-            <input
-              type="text"
-              placeholder="your Email"
-              onChange={(e) => emailSet(e.target.value)}
-            />
+          <h5>E-mail</h5>
+          <input
+            type="text"
+            placeholder="your Email"
+            onChange={(e) => emailSet(e.target.value)}
+          />
 
-            <h5>Password</h5>
-            <input
-              type="password"
-              placeholder="**********"
-              onChange={(e) => passwordSet(e.target.value)}
-            />
+          <h5>Password</h5>
+          <input
+            type="password"
+            placeholder="**********"
+            onChange={(e) => passwordSet(e.target.value)}
+          />
 
-            <h5>Confirm-Password</h5>
-            <input
-              type="password"
-              placeholder="**********"
-              onChange={(e) => setConfirm(e.target.value)}
-            />
+          <h5>Confirm-Password</h5>
+          <input
+            type="password"
+            placeholder="**********"
+            onChange={(e) => setConfirm(e.target.value)}
+          />
 
-            <button
-              className="sign_inButton"
-              onClick={() => {
-                handleSignup();
-              }}
-            >
-              Sign up
-            </button>
-          </form>
-          <p>
-            By signing-in you agree to the Alan Eats conditions. Please see our
-            Privacy Notice
-          </p>
-        </div>
+          <button
+            className="sign_inButton"
+            onClick={() => {
+              handleSignup();
+            }}
+          >
+            Sign up
+          </button>
+        </form>
+        <p>
+          By signing-in you agree to the Alan Eats conditions. Please see our
+          Privacy Notice
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 

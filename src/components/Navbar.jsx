@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="nav">
       <img
-        src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26ZIN6MJYPGOYKDB53BVT6CW"
+        src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26BSH73Q5VUXQ23MRLBXHH32"
         alt="alan eat"
       />
       <div className="nav_search">

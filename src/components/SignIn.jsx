@@ -9,25 +9,28 @@ const SignIn = () => {
   let history = useHistory();
   const [password, passwordSet] = useState("");
   const [email, emailSet] = useState("");
+  const [userData, setUserData] = useState("");
 
   const handleSignin = async () => {
+    history.push("/");
     try {
-      await axios.post("/api/user/login", {
+      let data = await axios.post("/api/user/login", {
         email: email,
         password: password,
       });
-      history.push("/");
+      setUserData(data);
     } catch (err) {
       console.log(err);
     }
   };
+  
 
   return (
     <div className="signin">
       <Link to="/">
         <img
           className="signin_logo"
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26ZIN6MJYPGOYKDB53BVT6CW"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26BSH73Q5VUXQ23MRLBXHH32"
           alt="alan eats logo"
         />
       </Link>

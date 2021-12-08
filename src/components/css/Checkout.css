@@ -1,0 +1,24 @@
+.checkout {
+  display: flex;
+}
+
+.checkout-container {
+  display: flex;
+  width: 96%;
+  margin: 10px;
+}
+
+.checkout_img {
+  max-height: 70%;
+  overflow-y: hidden;
+  width: 80%;
+  margin: 10px;
+}
+
+.checkout_img > img {
+  width: 100%;
+}
+
+.subtotal-container {
+  width: 20%;
+}

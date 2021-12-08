@@ -72,7 +72,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <h1>Customer Reviews</h1>
+      <h1 className="review_heading">Customer Reviews</h1>
       <div className="reviews">
         <div className="addReview_container">
           <AddReview itemDetails={details} />
