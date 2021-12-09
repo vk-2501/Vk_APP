@@ -4,26 +4,34 @@ import "./css/SignIn.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { userCreator } from "../redux/actions/userActions";
+import { useSelector } from "react-redux";
 
 const SignIn = () => {
   let history = useHistory();
+  let dispatch = useDispatch();
   const [password, passwordSet] = useState("");
   const [email, emailSet] = useState("");
-  const [userData, setUserData] = useState("");
+  let userData = [];
+
+  let user = useSelector((state) => state);
+  console.log(user);
 
   const handleSignin = async () => {
-    history.push("/");
+    dispatch(userCreator(userData));
+    history.push(`/`);
     try {
-      let data = await axios.post("/api/user/login", {
+      let user = [];
+      user = await axios.post("/api/user/login", {
         email: email,
         password: password,
       });
-      setUserData(data);
+      return user;
     } catch (err) {
       console.log(err);
     }
   };
-  
 
   return (
     <div className="signin">
@@ -53,8 +61,9 @@ const SignIn = () => {
 
           <button
             className="sign_inButton"
-            onClick={() => {
-              handleSignin();
+            onClick={async () => {
+              let user = await handleSignin();
+              userData.push(user.data.user);
             }}
           >
             Sign In

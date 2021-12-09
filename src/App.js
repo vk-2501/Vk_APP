@@ -16,6 +16,10 @@ function App() {
           <Navbar />
           <FoodRow />
         </Route>
+        {/* <Route exact path="/:userId">
+          <Navbar />
+          <FoodRow />
+        </Route> */}
         <Route path="/signin">
           <SignIn />
         </Route>
