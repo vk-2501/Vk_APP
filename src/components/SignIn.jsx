@@ -19,7 +19,7 @@ const SignIn = () => {
   console.log(user);
 
   const handleSignin = async () => {
-    dispatch(userCreator(userData));
+    // dispatch(userCreator(userData));
     history.push(`/`);
     try {
       let user = [];
@@ -64,6 +64,9 @@ const SignIn = () => {
             onClick={async () => {
               let user = await handleSignin();
               userData.push(user.data.user);
+              if (userData.length > 0) {
+                dispatch(userCreator(userData));
+              }
             }}
           >
             Sign In

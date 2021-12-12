@@ -5,17 +5,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Review from "./Review";
 import AddReview from "./AddReview";
-import { useSelector } from "react-redux";
 
-let i = 0;
 const ProductDetail = () => {
   let { foodId } = useParams();
   let [details, setDetails] = useState([]);
   let [ingredients, setIngredients] = useState([]);
   let [reviewData, setReviewData] = useState([]);
   let reviewsList = [];
-  let user = useSelector((state) => state);
-  console.log(user);
 
   let getFoodDetails = () => {
     axios

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Box } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const labels = {
   0.5: "Useless",
@@ -23,6 +24,8 @@ const AddReview = ({ itemDetails }) => {
   let [value, setValue] = useState("");
   let [hover, setHover] = useState("");
   let [reviewDescription, setReviewDescription] = useState("");
+  const user = useSelector((state) => state);
+  console.log(user);
 
   const handleReviewRequest = async () => {
     try {
@@ -30,6 +33,7 @@ const AddReview = ({ itemDetails }) => {
         description: reviewDescription,
         rating: value,
         food: itemDetails._id,
+        user: user._id,
       });
     } catch (err) {
       console.log(err);
