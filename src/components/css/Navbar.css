@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
 }
 
 .nav img {
@@ -11,6 +15,10 @@
   border-radius: 30%;
   margin-top: 10px;
   margin-left: 10px;
+}
+
+.nav_black {
+  background-color: rgb(241, 241, 241);
 }
 
 .nav_search {
@@ -55,4 +63,38 @@
   color: #164011;
   transform: scale(1.2);
   margin: 0px 10px;
+}
+
+.loggedUser {
+  display: flex;
+  margin: 0px 15px;
+}
+
+.user_logo {
+  width: 100%;
+  height: 100%;
+}
+
+.loggedUser_info {
+  margin-left: 5px;
+}
+
+.loggedUser_info > h4 {
+  margin-bottom: 2px;
+  color: rgb(41, 39, 39);
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logout_Btn {
+  border: none;
+  outline: none;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 2px;
+  color: rgb(158, 158, 158);
+  transition: all 0.2s ease-in-out;
+}
+
+.logout_Btn:hover {
+  transform: scale(1.1);
 }

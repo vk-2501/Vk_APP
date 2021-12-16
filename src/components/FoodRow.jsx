@@ -4,11 +4,12 @@ import "./css/FoodRow.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const FoodRow = () => {
   const [foodItems, setFoodItems] = useState([]);
-  let user = useSelector((state) => state);
+
+  let userCredentials = localStorage.getItem("user logged in");
+  let user = JSON.parse(userCredentials);
 
   let history = useHistory();
 
@@ -30,9 +31,11 @@ const FoodRow = () => {
             src={foodItem.image_url}
             alt="food item"
             onClick={() => {
-              return user
-                ? history.push(`/productDetail/${foodItem._id}`)
-                : alert("please signin to your account before doing anything");
+              // return user
+              //   ? history.push(`/productDetail/${foodItem._id}`)
+              //   : alert("please signin to your account before doing anything");
+
+              history.push(`/productDetail/${foodItem._id}`);
             }}
           />
           <div className="product">

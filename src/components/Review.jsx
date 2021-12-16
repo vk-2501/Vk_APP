@@ -8,10 +8,14 @@ import { useState, useEffect } from "react";
 const Review = ({ reviewDetails }) => {
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");
+  console.log(reviewDetails.user);
 
   const getUserData = async () => {
     try {
+      console.log("before fetch req");
       let userData = await axios.get(`/api/user/${reviewDetails.user}`);
+      console.log(userData);
+      console.log(userData.data.user.name);
       setUserName(userData.data.user.name);
       setUserImage(userData.data.user.userImage);
     } catch (err) {
@@ -20,7 +24,9 @@ const Review = ({ reviewDetails }) => {
   };
 
   useEffect(() => {
+    console.log("before useEffect");
     getUserData();
+    console.log("after useEffect");
   }, []);
 
   return (

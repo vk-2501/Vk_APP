@@ -1,6 +1,7 @@
 .productDetail {
   display: flex;
   margin: 30px;
+  margin-top: 75px;
 }
 
 .review_heading {

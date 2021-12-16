@@ -14,13 +14,12 @@ const SignUp = () => {
   const handleSignup = async () => {
     history.push("/signin");
     try {
-      let data = await axios.post("/api/user/signup", {
+      await axios.post("/api/user/signup", {
         name: name,
         email: email,
         password: password,
         confirmPassword: confirm,
       });
-      
     } catch (err) {
       console.log(err);
     }
@@ -31,7 +30,7 @@ const SignUp = () => {
       <Link to="/">
         <img
           className="signin_logo"
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26BSH73Q5VUXQ23MRLBXHH32"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM22WN3F2X3GD3MJVOSDBYNRZM"
           alt="alan eats logo"
         />
       </Link>

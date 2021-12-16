@@ -4,22 +4,14 @@ import "./css/SignIn.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { userCreator } from "../redux/actions/userActions";
-import { useSelector } from "react-redux";
 
 const SignIn = () => {
   let history = useHistory();
-  let dispatch = useDispatch();
   const [password, passwordSet] = useState("");
   const [email, emailSet] = useState("");
   let userData = [];
 
-  let user = useSelector((state) => state);
-  console.log(user);
-
   const handleSignin = async () => {
-    // dispatch(userCreator(userData));
     history.push(`/`);
     try {
       let user = [];
@@ -38,7 +30,7 @@ const SignIn = () => {
       <Link to="/">
         <img
           className="signin_logo"
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM26BSH73Q5VUXQ23MRLBXHH32"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM22WN3F2X3GD3MJVOSDBYNRZM"
           alt="alan eats logo"
         />
       </Link>
@@ -58,15 +50,12 @@ const SignIn = () => {
             placeholder="**********"
             onChange={(e) => passwordSet(e.target.value)}
           />
-
           <button
             className="sign_inButton"
             onClick={async () => {
               let user = await handleSignin();
               userData.push(user.data.user);
-              if (userData.length > 0) {
-                dispatch(userCreator(userData));
-              }
+              localStorage.setItem("user logged in", JSON.stringify(userData));
             }}
           >
             Sign In
