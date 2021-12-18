@@ -1,7 +1,7 @@
-let userReducer = (state = [], action) => {
+let userReducer = (state = false, action) => {
     switch (action.type) {
-        case "SET_USER":
-            return [...state, action.payload];
+        case "USER_STATUS":
+            return action.payload;
 
         default:
             return state;

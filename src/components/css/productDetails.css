@@ -37,6 +37,8 @@
 .my_product .product_detailsInfo {
   display: flex;
   font-size: 20px;
+  width: 380px;
+  justify-content: space-evenly;
 }
 
 .product .product_detailsInfo h3 {

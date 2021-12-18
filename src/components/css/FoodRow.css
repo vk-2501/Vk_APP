@@ -42,7 +42,7 @@
 .addToCart {
   color: #164011;
   font-size: 15px;
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
 .addToCart:hover {

@@ -5,15 +5,19 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Avatar } from "@material-ui/core";
+import { useSelector, useDispatch } from "react-redux";
+import { userCreator } from "../redux/actions/userActions";
 
 const Navbar = () => {
   let history = useHistory();
+  let dispatch = useDispatch();
+
+  let userStatus = useSelector((state) => state);
+
   const [show, handleShow] = useState(false);
-  const [login, setLogin] = useState(false);
+
   let userCredentials = localStorage.getItem("user logged in");
   let user = JSON.parse(userCredentials);
-  console.log(user);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -27,11 +31,6 @@ const Navbar = () => {
       window.removeEventListener("scroll", null);
     };
   }, []);
-
-  // useEffect(() => {
-  //   userCredentials = localStorage.getItem("user logged in");
-  //   user = JSON.parse(userCredentials);
-  // }, [login]);
 
   return (
     <div className={`nav ${show && "nav_black"}`}>
@@ -58,15 +57,14 @@ const Navbar = () => {
           </span>
         ) : (
           <div className="loggedUser">
-            {/* {setLogin(true)} */}
-            <Avatar className="user_logo" src={user[0].userImage} />
+            <img className="user_logo" src={user[0].userImage} />
             <div className="loggedUser_info">
               <h4>{user[0].name}</h4>
               <button
                 className="logout_Btn"
                 onClick={() => {
-                  // setLogin(false);
                   localStorage.removeItem("user logged in");
+                  dispatch(userCreator(false));
                   history.push("/signin");
                 }}
               >

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Review from "./Review";
 import AddReview from "./AddReview";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const ProductDetail = () => {
   let { foodId } = useParams();
@@ -12,6 +13,20 @@ const ProductDetail = () => {
   let [ingredients, setIngredients] = useState([]);
   let [reviewData, setReviewData] = useState([]);
   let reviewsList = [];
+
+  let userCredentials = localStorage.getItem("user logged in");
+  let user = JSON.parse(userCredentials);
+
+  let addToCart = async () => {
+    try {
+      await axios.patch("/api/user/cart", {
+        food: foodId,
+        user: user[0]._id.trim(),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   let getFoodDetails = () => {
     axios
@@ -52,6 +67,13 @@ const ProductDetail = () => {
           <div className="product_detailsInfo">
             <h3>{details.label}</h3>
             <h3>{`₹${details.price}`}</h3>
+            <div className="addToCart">
+              <AddShoppingCartIcon
+                onClick={() => {
+                  addToCart();
+                }}
+              />
+            </div>
           </div>
           <div className="product_img">
             <img src={details.image_url} alt="product image" />

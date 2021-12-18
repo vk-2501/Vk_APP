@@ -1,5 +1,6 @@
 .checkout {
   display: flex;
+  flex-direction: column;
   margin-top: 75px;
 }
 
@@ -22,4 +23,12 @@
 
 .subtotal-container {
   width: 20%;
+}
+
+.checkout_items {
+  margin: 20px;
+}
+
+.checkout_items > h1 {
+  color: rgb(56, 54, 54);
 }

@@ -13,8 +13,6 @@
   width: 80px;
   height: 80px;
   border-radius: 30%;
-  margin-top: 10px;
-  margin-left: 10px;
 }
 
 .nav_black {
@@ -68,11 +66,12 @@
 .loggedUser {
   display: flex;
   margin: 0px 15px;
+  align-items: center;
 }
 
-.user_logo {
-  width: 100%;
-  height: 100%;
+.loggedUser .user_logo {
+  width: 40px;
+  height: 40px;
 }
 
 .loggedUser_info {

@@ -6,12 +6,11 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const FoodRow = () => {
+  let history = useHistory();
   const [foodItems, setFoodItems] = useState([]);
 
   let userCredentials = localStorage.getItem("user logged in");
   let user = JSON.parse(userCredentials);
-
-  let history = useHistory();
 
   const getAllFoodItems = () => {
     axios.get("/api/food").then((res) => {
@@ -31,11 +30,9 @@ const FoodRow = () => {
             src={foodItem.image_url}
             alt="food item"
             onClick={() => {
-              // return user
-              //   ? history.push(`/productDetail/${foodItem._id}`)
-              //   : alert("please signin to your account before doing anything");
-
-              history.push(`/productDetail/${foodItem._id}`);
+              return user
+                ? history.push(`/productDetail/${foodItem._id}`)
+                : alert("please signin to your account before doing anything");
             }}
           />
           <div className="product">
@@ -43,9 +40,7 @@ const FoodRow = () => {
               <h4>{foodItem.label}</h4>
               <h4>₹{foodItem.price}</h4>
             </div>
-            <div className="addToCart">
-              <AddShoppingCartIcon />
-            </div>
+            <div className="addToCart">{/* <AddShoppingCartIcon /> */}</div>
           </div>
         </div>
       ))}

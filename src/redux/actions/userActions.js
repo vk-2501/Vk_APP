@@ -1,6 +1,8 @@
-export const userCreator = (user) => {
+export const userCreator = (val) => {
     return {
-        type: "SET_USER",
-        payload: user,
+        type: "USER_STATUS",
+        payload: val,
     }
 }
+
+

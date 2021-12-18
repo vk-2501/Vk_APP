@@ -4,8 +4,11 @@ import "./css/SignIn.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { userCreator } from "../redux/actions/userActions";
 
 const SignIn = () => {
+  let dispatch = useDispatch();
   let history = useHistory();
   const [password, passwordSet] = useState("");
   const [email, emailSet] = useState("");
@@ -56,6 +59,7 @@ const SignIn = () => {
               let user = await handleSignin();
               userData.push(user.data.user);
               localStorage.setItem("user logged in", JSON.stringify(userData));
+              dispatch(userCreator(true));
             }}
           >
             Sign In
