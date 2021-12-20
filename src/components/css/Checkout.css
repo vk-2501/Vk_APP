@@ -2,19 +2,21 @@
   display: flex;
   flex-direction: column;
   margin-top: 75px;
+  background-color: #eaeded;
 }
 
 .checkout-container {
   display: flex;
   width: 96%;
   margin: 10px;
+  margin-bottom: 0px;
 }
 
 .checkout_img {
   max-height: 70%;
   overflow-y: hidden;
   width: 80%;
-  margin: 10px;
+  margin: 0px 10px;
 }
 
 .checkout_img > img {
@@ -27,8 +29,49 @@
 
 .checkout_items {
   margin: 20px;
+  background-color: white;
+  width: 75%;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.checkout_items > h1 {
+.checkout h1 {
   color: rgb(56, 54, 54);
+  margin: 0px 20px;
+  box-shadow: 0 1px 0px 0 rgb(0 0 0 / 20%);
+  width: 75%;
+  background-color: white;
+  text-align: center;
+}
+
+.foodItem_card {
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  display: flex;
+  width: 40%;
+}
+
+.cartItem_image > img {
+  width: 180px;
+  height: 180px;
+  margin: 0px 30px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+.cartItem_info > h3 {
+  margin: 10px;
+  font-weight: 500;
+  margin-left: 0px;
+}
+
+.deleteBtn {
+  margin: 10px;
+  margin-left: 0px;
+  color: darkgray;
+  outline: none;
+  border: none;
+  background-color: white;
+  cursor: pointer;
 }

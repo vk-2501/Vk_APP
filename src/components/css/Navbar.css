@@ -6,6 +6,7 @@
   top: 0;
   width: 100%;
   z-index: 5;
+  background-color: rgb(241, 241, 241);
 }
 
 .nav img {
@@ -87,7 +88,6 @@
 .logout_Btn {
   border: none;
   outline: none;
-  background-color: white;
   cursor: pointer;
   margin-left: 2px;
   color: rgb(158, 158, 158);
