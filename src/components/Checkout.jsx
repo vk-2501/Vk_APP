@@ -7,7 +7,7 @@ import CartImg from "./cartImg.jpg";
 
 const Checkout = () => {
   let cartData = [];
-  let [reviewId, setReviewId] = useState([]);
+  let totalCartPrice = 0;
   let [foodData, setFoodData] = useState([]);
   let userCredentials = localStorage.getItem("user logged in");
   let user = JSON.parse(userCredentials);
@@ -42,7 +42,6 @@ const Checkout = () => {
   useEffect(() => {
     getUser();
   }, []);
-  console.log(reviewId);
 
   return (
     <div className="checkout">
@@ -51,7 +50,12 @@ const Checkout = () => {
           <img src={CartImg} alt="" />
         </div>
         <div className="subtotal-container">
-          <Subtotal />
+          {foodData.length > 0
+            ? foodData.map((item) => {
+                totalCartPrice += item.price;
+              })
+            : totalCartPrice}
+          <Subtotal price={totalCartPrice} items={foodData.length} />
         </div>
       </div>
       <h1>Shopping Cart</h1>

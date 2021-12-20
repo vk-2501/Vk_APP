@@ -99,3 +99,7 @@ form > textarea {
 .review_data > p {
   width: 90%;
 }
+
+form > textarea {
+  background-color: #f1f1f1;
+}

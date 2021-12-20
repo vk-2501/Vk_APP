@@ -40,7 +40,6 @@ const FoodRow = () => {
               <h4>{foodItem.label}</h4>
               <h4>₹{foodItem.price}</h4>
             </div>
-            <div className="addToCart">{/* <AddShoppingCartIcon /> */}</div>
           </div>
         </div>
       ))}
