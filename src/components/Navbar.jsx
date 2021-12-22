@@ -49,6 +49,15 @@ const Navbar = () => {
 
       {/* right div */}
       <div className="nav_header">
+        <div
+          className="nav_cart"
+          onClick={() => {
+            history.push("/checkout");
+          }}
+        >
+          <ShoppingBasketIcon className="cartIcon" />
+        </div>
+
 
       {/* cart div */}
         <div
@@ -87,8 +96,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-
-       
       </div>
     </div>
   );
