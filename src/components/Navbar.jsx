@@ -42,9 +42,12 @@ const Navbar = () => {
       </Link>
 
       <div className="nav_search">
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search your fav food item 😛" />
         <SearchIcon className="nav_searchIcon" />
       </div>
+
+
+      {/* right div */}
       <div className="nav_header">
         <div
           className="nav_cart"
@@ -55,6 +58,17 @@ const Navbar = () => {
           <ShoppingBasketIcon className="cartIcon" />
         </div>
 
+
+      {/* cart div */}
+        <div
+            className="nav_cart"
+            onClick={() => {
+              history.push("/checkout");
+            }}
+          >
+            <ShoppingBasketIcon className="cartIcon" />
+        </div>
+      
         {!user ? (
           <span
             className="nav_signin"
