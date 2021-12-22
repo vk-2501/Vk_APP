@@ -15,6 +15,7 @@ const FoodRow = () => {
   const getAllFoodItems = () => {
     axios.get("/api/food").then((res) => {
       setFoodItems(res.data.data);
+      
     });
   };
 

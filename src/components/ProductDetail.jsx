@@ -9,6 +9,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const ProductDetail = () => {
   let { foodId } = useParams();
+  console.log(useParams());
   let [details, setDetails] = useState([]);
   let [ingredients, setIngredients] = useState([]);
   let [reviewData, setReviewData] = useState([]);
@@ -32,6 +33,7 @@ const ProductDetail = () => {
     axios
       .get(`/api/food/${foodId}`)
       .then((res) => {
+        console.log(res);
         setDetails(res.data.data);
         setIngredients(res.data.data.ingredients);
         reviewsList = res.data.data.reviews;

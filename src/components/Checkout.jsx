@@ -4,10 +4,10 @@ import "./css/Checkout.css";
 import Subtotal from "./Subtotal";
 import { useEffect, useState } from "react";
 import CartImg from "./cartImg.jpg";
-import useForceUpdate from "use-force-update";
+// import useForceUpdate from "use-force-update";
 
 const Checkout = () => {
-  const forceUpdate = useForceUpdate();
+  // const forceUpdate = useForceUpdate();
   let cartData = [];
   let totalCartPrice = 0;
   let [foodData, setFoodData] = useState([]);
@@ -57,7 +57,7 @@ const Checkout = () => {
     getUser();
   }, []);
 
-  console.log(foodData);
+  // console.log(foodData);
 
   return (
     <div className="checkout">
@@ -84,7 +84,7 @@ const Checkout = () => {
                 className="deleteBtn"
                 onClick={() => {
                   removeFromCart(foodItem._id);
-                  forceUpdate();
+                  // forceUpdate();
                 }}
               >
                 Delete
