@@ -1,10 +1,9 @@
 .foodRow {
   display: flex;
   margin: 15px;
-  margin-top: 30px;
   overflow-y: hidden;
   overflow-x: scroll;
-  margin-top: 75px;
+  margin-top: 80px;
 }
 
 .foodRow::-webkit-scrollbar {
