@@ -58,18 +58,16 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
-      <div className="checkout-container">
-        <div className="checkout_img">
+      <div className="checkout_img">
           <img src={CartImg} alt="" />
-        </div>
-        <div className="subtotal-container">
+      </div>
+      <div className="subtotal-container">
           {foodData.length > 0
-            ? foodData.map((item) => {
-                totalCartPrice += item.price;
-              })
-            : totalCartPrice}
+            ? foodData.map((item) => (
+                totalCartPrice += item.price
+              ))
+            : 0}
           <Subtotal price={totalCartPrice} items={foodData.length} />
-        </div>
       </div>
       <h1>Shopping Cart</h1>
       <div className="checkout_items">

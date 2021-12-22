@@ -8,6 +8,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Image from "./Images/MainImage.png";
 import MainImage from './components/MainImage';
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -18,6 +19,10 @@ function App() {
           <Navbar />
           <MainImage />
           <FoodRow />
+          <FoodRow />
+          <FoodRow />
+          <FoodRow />
+          <Footer />
         </Route>
         <Route path="/signin">
           <SignIn />

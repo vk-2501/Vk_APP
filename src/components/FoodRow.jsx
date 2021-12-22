@@ -23,6 +23,9 @@ const FoodRow = () => {
   }, []);
 
   return (
+
+   <>
+    <h1 className="categoryName">Fast Food </h1>
     <div className="foodRow">
       {foodItems.map((foodItem) => (
         <div className="item-card" key={foodItem._id}>
@@ -44,6 +47,7 @@ const FoodRow = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
