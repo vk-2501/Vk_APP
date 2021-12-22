@@ -46,6 +46,15 @@ const Navbar = () => {
         <SearchIcon className="nav_searchIcon" />
       </div>
       <div className="nav_header">
+        <div
+          className="nav_cart"
+          onClick={() => {
+            history.push("/checkout");
+          }}
+        >
+          <ShoppingBasketIcon className="cartIcon" />
+        </div>
+
         {!user ? (
           <span
             className="nav_signin"
@@ -73,15 +82,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-
-        <div
-          className="nav_cart"
-          onClick={() => {
-            history.push("/checkout");
-          }}
-        >
-          <ShoppingBasketIcon className="cartIcon" />
-        </div>
       </div>
     </div>
   );

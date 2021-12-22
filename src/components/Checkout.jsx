@@ -4,8 +4,10 @@ import "./css/Checkout.css";
 import Subtotal from "./Subtotal";
 import { useEffect, useState } from "react";
 import CartImg from "./cartImg.jpg";
+import useForceUpdate from "use-force-update";
 
 const Checkout = () => {
+  const forceUpdate = useForceUpdate();
   let cartData = [];
   let totalCartPrice = 0;
   let [foodData, setFoodData] = useState([]);
@@ -34,6 +36,17 @@ const Checkout = () => {
         })
       );
       return arr;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  let removeFromCart = async (foodId) => {
+    try {
+      await axios.patch("/api/user/cart/delete", {
+        user: user[0]._id,
+        food: foodId,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -68,7 +81,15 @@ const Checkout = () => {
             <div className="cartItem_info">
               <h3>{foodItem.label}</h3>
               <p>₹{foodItem.price}</p>
-              <button className="deleteBtn">Delete</button>
+              <button
+                className="deleteBtn"
+                onClick={() => {
+                  removeFromCart(foodItem._id);
+                  forceUpdate();
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
