@@ -19,6 +19,7 @@ const Checkout = () => {
       .get(`/api/user/${user[0]._id}`)
       .then((res) => {
         cartData = res.data.user.cart;
+        console.log(cartData);
       })
       .then(async () => {
         let arr = await getFoodData();
@@ -56,18 +57,18 @@ const Checkout = () => {
     getUser();
   }, []);
 
+  console.log(foodData);
+
   return (
     <div className="checkout">
       <div className="checkout_img">
-          <img src={CartImg} alt="" />
+        <img src={CartImg} alt="" />
       </div>
       <div className="subtotal-container">
-          {foodData.length > 0
-            ? foodData.map((item) => (
-                totalCartPrice += item.price
-              ))
-            : 0}
-          <Subtotal price={totalCartPrice} items={foodData.length} />
+        {foodData.length > 0
+          ? foodData.map((item) => (totalCartPrice += item.price))
+          : 0}
+        <Subtotal price={totalCartPrice} items={foodData.length} />
       </div>
       <h1>Shopping Cart</h1>
       <div className="checkout_items">
