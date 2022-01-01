@@ -4,12 +4,11 @@ import "./css/Checkout.css";
 import Subtotal from "./Subtotal";
 import { useEffect, useState } from "react";
 import CartImg from "./cartImg.jpg";
-// import useForceUpdate from "use-force-update";
 
 const Checkout = () => {
-  // const forceUpdate = useForceUpdate();
   let cartData = [];
   let totalCartPrice = 0;
+  let totalItems = 0;
   let [foodData, setFoodData] = useState([]);
   let userCredentials = localStorage.getItem("user logged in");
   let user = JSON.parse(userCredentials);
@@ -57,8 +56,6 @@ const Checkout = () => {
     getUser();
   }, []);
 
-  // console.log(foodData);
-
   return (
     <div className="checkout">
       <div className="checkout_img">
@@ -66,9 +63,12 @@ const Checkout = () => {
       </div>
       <div className="subtotal-container">
         {foodData.length > 0
-          ? foodData.map((item) => (totalCartPrice += item.price))
-          : 0}
-        <Subtotal price={totalCartPrice} items={foodData.length} />
+          ? foodData.map((item) => {
+              totalItems = totalItems + parseInt(item.qty);
+              totalCartPrice = totalCartPrice + item.price * item.qty;
+            })
+          : foodData.length}
+        <Subtotal price={totalCartPrice} items={totalItems} />
       </div>
       <h1>Shopping Cart</h1>
       <div className="checkout_items">
@@ -84,11 +84,11 @@ const Checkout = () => {
                 className="deleteBtn"
                 onClick={() => {
                   removeFromCart(foodItem._id);
-                  // forceUpdate();
                 }}
               >
                 Delete
               </button>
+              <p>{`Qty: ${foodItem.qty}`}</p>
             </div>
           </div>
         ))}
