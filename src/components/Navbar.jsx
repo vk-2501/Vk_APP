@@ -36,7 +36,7 @@ const Navbar = () => {
     <div className={`nav ${show && "nav_black"}`}>
       <Link to="/">
         <img
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM2YWMWWX4UOJJBCYQGLBZVGOS"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM22YLJMZTIIRHSTKHVLB27FEY"
           alt="alan eat"
         />
       </Link>

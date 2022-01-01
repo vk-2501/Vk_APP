@@ -65,7 +65,6 @@ const Checkout = () => {
         {foodData.length > 0
           ? foodData.map((item) => {
               totalItems = totalItems + parseInt(item.qty);
-              console.log(totalItems);
               totalCartPrice = totalCartPrice + item.price * item.qty;
             })
           : foodData.length}

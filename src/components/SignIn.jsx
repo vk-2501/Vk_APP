@@ -33,7 +33,7 @@ const SignIn = () => {
       <Link to="/">
         <img
           className="signin_logo"
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM2YWMWWX4UOJJBCYQGLBZVGOS"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM22YLJMZTIIRHSTKHVLB27FEY"
           alt="alan eats logo"
         />
       </Link>
