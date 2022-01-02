@@ -40,10 +40,11 @@ const Checkout = () => {
       console.log(err);
     }
   };
+  console.log(foodData);
 
   let removeFromCart = async (foodId) => {
     try {
-      await axios.patch("/api/user/cart/delete", {
+      await axios.post("/api/user/cart/delete", {
         user: user[0]._id,
         food: foodId,
       });

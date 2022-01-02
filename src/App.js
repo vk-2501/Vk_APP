@@ -10,14 +10,18 @@ import SignUp from "./components/SignUp";
 import MainImage from './components/MainImage';
 import Footer from "./components/Footer";
 import alanBtn from '@alan-ai/alan-sdk-web';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 function App() {
-
+  // let alanBtnInstance;
+  let [allData, setAllData] = useState([]);
   let userCredentials = localStorage.getItem("user logged in");
+
   let user = JSON.parse(userCredentials);
   // console.log(user);
-  // console.log(user[0]._id);
+  console.log(user[0]._id);
 
   useEffect(() => {
     let alanBtnInstance = alanBtn({
@@ -25,14 +29,55 @@ function App() {
       onCommand: (commandData) => {
         if (commandData.command === 'allItems') {
           // Call the client code that will react to the received command
+
+        } else if (commandData.command === "myItem") {
+          // console.log(typeof (commandData.foodId));
+          let foodId = commandData.foodId.toString();
+          addToCart(foodId);
+        } else if (commandData.command === "removeItem") {
+          let removeId = commandData.foodId.toString();
+          removeFromCart(removeId);
         }
       }
     });
-    alanBtnInstance.callProjectApi("setClientData", { value: user[0]._id }, function (error, result) {
-      // handle error and result here
-      console.log(result);
-    });
+    
   }, []);
+
+  const getAllFoodItems = async () => {
+    await axios.get("/api/food").then((res) => {
+      setAllData(res.data.data);
+
+    });
+  };
+
+  useEffect(() => {
+    getAllFoodItems();
+
+  }, [])
+
+
+  let addToCart = async (foodId) => {
+    try {
+      console.log("voice script run", foodId);
+      await axios.post("/api/user/cart", {
+        food: foodId,
+        user: user[0]._id.trim(),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  let removeFromCart = async (foodId) => {
+    try {
+      await axios.post("/api/user/cart/delete", {
+        user: user[0]._id,
+        food: foodId,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Router>
@@ -44,6 +89,9 @@ function App() {
           <FoodRow />
           <FoodRow />
           <FoodRow />
+          {/* <button onclick={() => {
+            userFeedback()
+          }}>sent</button> */}
           <Footer />
         </Route>
         <Route path="/signin">
