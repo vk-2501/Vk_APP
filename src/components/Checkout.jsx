@@ -5,6 +5,7 @@ import Subtotal from "./Subtotal";
 import { useEffect, useState } from "react";
 import CartImg from "./cartImg.jpg";
 
+
 const Checkout = () => {
   let cartData = [];
   let totalCartPrice = 0;
@@ -56,6 +57,8 @@ const Checkout = () => {
   useEffect(() => {
     getUser();
   }, []);
+
+  
 
   return (
     <div className="checkout">

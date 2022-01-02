@@ -11,6 +11,7 @@ import { userCreator } from "../redux/actions/userActions";
 const Navbar = () => {
   let history = useHistory();
   let dispatch = useDispatch();
+  // console.log(history);
 
   let userStatus = useSelector((state) => state);
 
@@ -20,6 +21,7 @@ const Navbar = () => {
   let user = JSON.parse(userCredentials);
 
   useEffect(() => {
+    // console.log(history);
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         handleShow(true);

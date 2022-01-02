@@ -1,27 +1,29 @@
 import './App.css';
-import Navbar from "./components/Navbar";
-import FoodRow from "./components/FoodRow";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ProductDetail from "./components/ProductDetail";
-import Checkout from "./components/Checkout";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+// import Navbar from "./components/Navbar";
+// import FoodRow from "./components/FoodRow";
+import { BrowserRouter as Router, Switch, Route, Link, useHistory, Redirect } from "react-router-dom";
+// import ProductDetail from "./components/ProductDetail";
+// import Checkout from "./components/Checkout";
+// import SignIn from "./components/SignIn";
+// import SignUp from "./components/SignUp";
 // import Image from "./Images/MainImage.png";
-import MainImage from './components/MainImage';
 import Footer from "./components/Footer";
+// import MainImage from './components/MainImage';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AppWrapper from "../src/AppWrapper";
 
 
-function App() {
+
+let App = () => {
   // let alanBtnInstance;
-  let [allData, setAllData] = useState([]);
+  // let history = useHistory();
+  // console.log(history);
+
   let userCredentials = localStorage.getItem("user logged in");
 
   let user = JSON.parse(userCredentials);
-  // console.log(user);
-  console.log(user[0]._id);
 
   useEffect(() => {
     let alanBtnInstance = alanBtn({
@@ -29,32 +31,23 @@ function App() {
       onCommand: (commandData) => {
         if (commandData.command === 'allItems') {
           // Call the client code that will react to the received command
+          window.scrollBy(0, window.innerHeight);
 
         } else if (commandData.command === "myItem") {
-          // console.log(typeof (commandData.foodId));
+          // if(user[0]._id)
           let foodId = commandData.foodId.toString();
           addToCart(foodId);
         } else if (commandData.command === "removeItem") {
           let removeId = commandData.foodId.toString();
           removeFromCart(removeId);
+          // }
+        } else if (commandData.command === "showcart") {
+          window.scrollBy(0, window.innerHeight);
+
         }
       }
     });
-    
-  }, []);
-
-  const getAllFoodItems = async () => {
-    await axios.get("/api/food").then((res) => {
-      setAllData(res.data.data);
-
-    });
-  };
-
-  useEffect(() => {
-    getAllFoodItems();
-
-  }, [])
-
+  });
 
   let addToCart = async (foodId) => {
     try {
@@ -80,36 +73,33 @@ function App() {
   };
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Navbar />
-          <MainImage />
-          <FoodRow />
-          <FoodRow />
-          <FoodRow />
-          <FoodRow />
-          {/* <button onclick={() => {
-            userFeedback()
-          }}>sent</button> */}
-          <Footer />
-        </Route>
-        <Route path="/signin">
-          <SignIn />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/productDetail/:foodId" >
-          <Navbar />
-          <ProductDetail />
-        </Route>
-        <Route path="/checkout">
-          <Navbar />
-          <Checkout />
-        </Route>
-      </Switch>
-    </Router>
+    // <Router>
+    //   <Switch>
+    //     <Route exact path="/">
+    //       <Navbar />
+    //       <MainImage />
+    //       <FoodRow />
+    //       {/* <Footer /> */}
+    //     </Route>
+    //     <Route path="/signin">
+    //       <SignIn />
+    //     </Route>
+    //     <Route path="/signup">
+    //       <SignUp />
+    //     </Route>
+    //     <Route path="/productDetail/:foodId" >
+    //       <Navbar />
+    //       <ProductDetail />
+    //     </Route>
+    //     <Route path="/checkout">
+    //       <Navbar />
+    //       <Checkout />
+    //     </Route>
+    //   </Switch>
+    // </Router>
+    <>
+      <AppWrapper />
+    </>
   );
 }
 
