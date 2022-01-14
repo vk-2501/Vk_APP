@@ -38,7 +38,7 @@ const Navbar = () => {
     <div className={`nav ${show && "nav_black"}`}>
       <Link to="/">
         <img
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=ANRAM22YLJMZTIIRHSTKHVLB27FEY"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=GHSAT0AAAAAABP5HSQESUSJTMJO7XR23KASYPKZO4A"
           alt="alan eat"
         />
       </Link>
@@ -48,11 +48,18 @@ const Navbar = () => {
         <SearchIcon className="nav_searchIcon" />
       </div>
 
-      {/* right div */}
       <div className="nav_header">
-        {/* cart div */}
         <div
           className="nav_cart"
+          onClick={() => {
+            history.push("/checkout");
+          }}
+        >
+          <ShoppingBasketIcon className="cartIcon" />
+        </div>
+
+        <div
+          className="nav_cart-f"
           onClick={() => {
             history.push("/checkout");
           }}

@@ -6,12 +6,8 @@ import ProductDetail from "./components/ProductDetail";
 import Checkout from "./components/Checkout";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-// import Image from "./Images/MainImage.png";
 import Footer from "./components/Footer";
 import MainImage from './components/MainImage';
-// import alanBtn from '@alan-ai/alan-sdk-web';
-// import { useEffect, useState } from "react";
-// import axios from "axios";
 
 const AppWrapper = () => {
     return (
@@ -21,7 +17,7 @@ const AppWrapper = () => {
                     <Navbar />
                     <MainImage />
                     <FoodRow />
-                    {/* <Footer /> */}
+                    <Footer />
                 </Route>
                 <Route path="/signin">
                     <SignIn />
@@ -32,10 +28,12 @@ const AppWrapper = () => {
                 <Route path="/productDetail/:foodId" >
                     <Navbar />
                     <ProductDetail />
+                    <Footer />
                 </Route>
                 <Route path="/checkout">
                     <Navbar />
                     <Checkout />
+                    <Footer />
                 </Route>
             </Switch>
         </Router>

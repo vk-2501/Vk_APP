@@ -88,6 +88,10 @@
   box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.2);
 }
 
+.nav_cart-f {
+  color: white;
+}
+
 .logout_Btn {
   border: none;
   outline: none;

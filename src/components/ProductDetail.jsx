@@ -17,8 +17,6 @@ const ProductDetail = () => {
 
   let userCredentials = localStorage.getItem("user logged in");
   let user = JSON.parse(userCredentials);
-  // console.log(typeof user[0]._id.trim());
-  // console.log(typeof(foodId))
 
   let addToCart = async () => {
     try {

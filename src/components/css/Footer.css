@@ -1,6 +1,49 @@
 .footer {
   display: flex;
-  flex-direction: column;
-  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
   color: white;
+  margin-top: 100px;
+  padding: 50px;
+}
+
+.alan_logo {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.alan_logo img {
+  object-fit: contain;
+  width: 260px;
+  height: 230px;
+  border-radius: 30%;
+  /* margin-left: 15px; */
+  padding-bottom: 0px;
+  margin: auto;
+}
+
+.contact_us > h1 {
+  color: black;
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+.names {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+.contact_us {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.names > a {
+  text-decoration: none;
+  color: #cd193f;
 }

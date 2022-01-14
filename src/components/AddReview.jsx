@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Box } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import axios from "axios";
-// import { useSelector } from "react-redux";
 
 const labels = {
   0.5: "Useless",
