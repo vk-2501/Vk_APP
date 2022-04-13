@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="footer">
       <div className="alan_logo">
         <img
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=GHSAT0AAAAAABP5HSQESUSJTMJO7XR23KASYPKZO4A"
+          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=GHSAT0AAAAAABRLSBBNORBTJCYAOI22UQNCYQYUG5A"
           alt=""
         />
       </div>

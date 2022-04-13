@@ -9,7 +9,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const ProductDetail = () => {
   let { foodId } = useParams();
-  console.log(useParams());
+  // console.log(useParams());
   let [details, setDetails] = useState([]);
   let [ingredients, setIngredients] = useState([]);
   let [reviewData, setReviewData] = useState([]);

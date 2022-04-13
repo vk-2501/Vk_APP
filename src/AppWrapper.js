@@ -17,7 +17,7 @@ const AppWrapper = () => {
                     <Navbar />
                     <MainImage />
                     <FoodRow />
-                    <Footer />
+                    {/* <Footer /> */}
                 </Route>
                 <Route path="/signin">
                     <SignIn />
@@ -28,12 +28,12 @@ const AppWrapper = () => {
                 <Route path="/productDetail/:foodId" >
                     <Navbar />
                     <ProductDetail />
-                    <Footer />
+                    {/* <Footer /> */}
                 </Route>
                 <Route path="/checkout">
                     <Navbar />
                     <Checkout />
-                    <Footer />
+                    {/* <Footer /> */}
                 </Route>
             </Switch>
         </Router>

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { userCreator } from "../redux/actions/userActions";
+import AlanEatsLogo from "../Images/AlanEatsLogo.png";
 
 const Navbar = () => {
   let history = useHistory();
@@ -37,14 +38,11 @@ const Navbar = () => {
   return (
     <div className={`nav ${show && "nav_black"}`}>
       <Link to="/">
-        <img
-          src="https://raw.githubusercontent.com/Jassi10000/AlanEats/main/frontend/src/images/AlanEatsLogo.png?token=GHSAT0AAAAAABP5HSQESUSJTMJO7XR23KASYPKZO4A"
-          alt="alan eat"
-        />
+        <img src={AlanEatsLogo} alt="alan eat" />
       </Link>
 
       <div className="nav_search">
-        <input type="text" placeholder="Search your fav food item 😛" />
+        <input type="text" placeholder="Search your fav food item" />
         <SearchIcon className="nav_searchIcon" />
       </div>
 
