@@ -27,7 +27,7 @@ const Checkout = () => {
         setFoodData(arr);
       });
   };
-
+///why not
   let getFoodData = async () => {
     try {
       let arr = [];
