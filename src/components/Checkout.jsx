@@ -5,7 +5,8 @@ import Subtotal from "./Subtotal";
 import { useEffect, useState } from "react";
 import CartImg from "./cartImg.jpg";
 
-
+//try new
+//something different
 const Checkout = () => {
   let cartData = [];
   let totalCartPrice = 0;
